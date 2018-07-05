@@ -10,20 +10,20 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li>
+          <li style={{ padding: '0 10px' }}>
             <a href="/auth/google">Login With Google</a>
           </li>
         );
       default:
         return (
           [
-            <li key={1}>
+            <li key={1} style={{ padding: '0 10px' }}>
               <Payments />
             </li>,
-            <li key={3} style={{ paddingLeft: '5px' }}>
+            <li key={3} style={{ padding: '0 10px' }}>
               Credits: {this.props.auth.credits}
             </li>,
-            <li key={2}>
+            <li key={2} style={{ padding: '0 10px' }}>
               <a href="/api/logout">Logout</a>
             </li>
           ]
@@ -33,15 +33,15 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="teal lighten-2">
-        <div className="nav-wrapper">
+      <nav className="teal lighten-2 nav-extended">
+        <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
           <Link
             to={this.props.auth ? '/surveys' : '/'}
-            className="left brand-logo"
+            style={{ display: 'inline-block', fontSize: '2.1rem', paddingLeft: '10px' }}
           >
             Online Survey
           </Link>
-          <ul className="right">
+          <ul style={{ display: 'flex', justifyContent: 'space-around' }}>
             {this.renderContent()}
           </ul>
         </div>
